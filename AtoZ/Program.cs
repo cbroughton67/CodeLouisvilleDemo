@@ -8,15 +8,15 @@ namespace AtoZ
         // Print ALL alphas A-Z
         public static void Main(string[] args)
         {
-            PrintAtoZ();
+            Console.WriteLine(PrintAtoZ());
 
-            PrintEveryOtherAtoZ();
+            Console.WriteLine(PrintEveryOtherAtoZ());
 
-            PrintZtoA();
+            Console.WriteLine(PrintZtoA());
 
         }
 
-        private static void PrintAtoZ()
+        private static string PrintAtoZ()
         {
             string alphas = string.Empty;
 
@@ -25,12 +25,12 @@ namespace AtoZ
                 alphas = alphas + c;
             }
 
-            Console.WriteLine(alphas);
+            return alphas;
 
         }
 
 
-        private static void PrintEveryOtherAtoZ()
+        private static string PrintEveryOtherAtoZ()
         {
             string alphas = string.Empty;
 
@@ -39,11 +39,11 @@ namespace AtoZ
                 alphas = alphas + c;
             }
 
-            Console.WriteLine(alphas);
+            return alphas;
 
         }
 
-        private static void PrintZtoA()
+        private static string PrintZtoA()
         {
             string alphas = string.Empty;
 
@@ -52,7 +52,7 @@ namespace AtoZ
                 alphas = alphas + c;
             }
 
-            Console.WriteLine(alphas);
+            return alphas;
 
         }
     }
