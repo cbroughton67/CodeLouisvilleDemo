@@ -33,10 +33,20 @@ namespace AtoZ
         private static string PrintEveryOtherAtoZ()
         {
             string alphas = string.Empty;
+            int skip;
+            string valueEntered;
 
-            for (char c = 'A'; c <= 'Z'; c = Convert.ToChar(Convert.ToInt32(c) + 2))
+            do   //Ask for number until a number is entered
             {
-                alphas = alphas + c;
+                Console.WriteLine("Enter a number: ");
+                valueEntered = Convert.ToString(Console.ReadLine());
+            }
+            while (int.TryParse(valueEntered, out skip) == false);
+
+            // Generate output, skipping number of letters based on input
+            for (char c = 'A'; c <= 'Z'; c = Convert.ToChar(Convert.ToInt32(c) + skip))
+            {
+                alphas += c;
             }
 
             return alphas;
