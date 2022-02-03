@@ -23,7 +23,7 @@ namespace AtoZ
                         break;
 
                     case "2":
-                        Console.WriteLine("\n" + PrintEveryOtherAtoZ());
+                        Console.WriteLine("\n" + PrintEveryOtherAtoZ(GetSkipValue()));
                         doItAgain = true;
                         break;
 
@@ -77,7 +77,21 @@ namespace AtoZ
         }
   
             
-     
+        private static int GetSkipValue()
+        {
+            int skip;
+            string valueEntered;
+
+            do   //Ask for number until a number is entered
+            {
+                Console.Clear();
+                Console.WriteLine("Enter a number: ");
+                valueEntered = Convert.ToString(Console.ReadKey().KeyChar);
+            }
+            while (int.TryParse(valueEntered, out skip) == false);
+
+            return skip;
+        }
 
         private static string PrintAtoZ()
         {
@@ -93,20 +107,10 @@ namespace AtoZ
         }
 
 
-        private static string PrintEveryOtherAtoZ()
+        private static string PrintEveryOtherAtoZ(int skip)
         {
             string alphas = string.Empty;
-            int skip;
-            string valueEntered;
-
-            do   //Ask for number until a number is entered
-            {
-                Console.Clear();
-                Console.WriteLine("Enter a number: ");
-                valueEntered = Convert.ToString(Console.ReadKey().KeyChar);
-            }
-            while (int.TryParse(valueEntered, out skip) == false);
-
+            
             // Generate output, skipping number of letters based on input
             for (char c = 'A'; c <= 'Z'; c = Convert.ToChar(Convert.ToInt32(c) + skip))
             {
