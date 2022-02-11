@@ -1,4 +1,5 @@
 ﻿using System;
+using CodeLouisvilleLibrary;
 
 namespace AtoZ_Week6
 {
@@ -6,7 +7,11 @@ namespace AtoZ_Week6
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            bool doesThisMakeSense = CodeLouisvilleAppBase.Prompt4YesNo("Does this make sense? ");
+            if (doesThisMakeSense)
+                Console.WriteLine("I've got this!!!");
+            else
+                Console.WriteLine("Blame John");
         }
     }
 }
